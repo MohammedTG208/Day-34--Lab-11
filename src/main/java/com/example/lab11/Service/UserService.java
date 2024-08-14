@@ -66,4 +66,8 @@ public class UserService {
         }
         return userRepository.findUserByRegistrationdateGreaterThanEqual(regesterDate);
     }
+
+    public List<User> getUserNameLike(String like){
+        return userRepository.findUserByUsernameLike(like);
+    }
 }

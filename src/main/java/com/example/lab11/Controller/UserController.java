@@ -60,4 +60,8 @@ public class UserController {
     public ResponseEntity getUserByEmail(@PathVariable String email){
         return ResponseEntity.status(200).body(userService.getUserByEmail(email));
     }
+    @GetMapping("/get/user/like/{like}")
+    public ResponseEntity getUserLike(@PathVariable String like){
+        return ResponseEntity.status(200).body(userService.getUserNameLike(like));
+    }
 }

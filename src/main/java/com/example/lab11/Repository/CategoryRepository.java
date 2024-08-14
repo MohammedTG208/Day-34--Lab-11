@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
     @Query("select cat from Category cat where cat.category_id=?1")
     Category getCategoryByCategory_id(Integer id);
+
+    Category findCategoryByName(String name);
 }

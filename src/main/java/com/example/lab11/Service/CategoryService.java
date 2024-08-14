@@ -29,7 +29,12 @@ public class CategoryService {
     public void addNewCat(Category category){
         categoryRepository.save(category);
     }
-
+    public Category getByName(String name){
+        if (categoryRepository.findCategoryByName(name)==null){
+            throw new APiException("The category does not exist");
+        }
+        return categoryRepository.findCategoryByName(name);
+    }
     public void deleteCatById(Integer id){
         if (categoryRepository.getCategoryByCategory_id(id)==null){
             throw new APiException("The category does not exist");

@@ -22,7 +22,10 @@ public class CategoryController {
     public ResponseEntity getCategoryById(@PathVariable Integer id) {
         return ResponseEntity.status(200).body(categoryService.findCatById(id));
     }
-
+    @GetMapping("/get/by/name/{name}")
+    public ResponseEntity getCategoryByName(@PathVariable String name) {
+        return ResponseEntity.status(200).body(categoryService.getByName(name));
+    }
     @PostMapping("/add")
     public ResponseEntity addCategory(@Valid @RequestBody Category category, Errors errors) {
         if (errors.hasErrors()) {
